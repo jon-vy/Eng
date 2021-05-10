@@ -35,13 +35,13 @@ def on_click(x, y, button, pressed):
 
 # Собираем события пока не закончится поток
 with mouse.Listener(
-        #on_move=on_move,
+        on_move=on_move,
         on_click=on_click) as listener:
     listener.join()
 
 # Запускаем метод для отслеживания мыши
 listener = mouse.Listener(
-    #on_move=on_move,
+    on_move=on_move,
     on_click=on_click)
 listener.start()
 
