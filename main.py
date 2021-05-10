@@ -25,6 +25,7 @@ def on_click(x, y, button, pressed):
         y_2 = y
         pressed_status = 'off'
         print(f"Позиция курсора: x: {x_2}, y: {y_2} | Статус нажатия: {pressed_status} | Кнопка: {button}")
+        return False
 
 
 
@@ -35,13 +36,13 @@ def on_click(x, y, button, pressed):
 
 # Собираем события пока не закончится поток
 with mouse.Listener(
-        on_move=on_move,
+        #on_move=on_move,
         on_click=on_click) as listener:
     listener.join()
 
 # Запускаем метод для отслеживания мыши
 listener = mouse.Listener(
-    on_move=on_move,
+    #on_move=on_move,
     on_click=on_click)
 listener.start()
 
