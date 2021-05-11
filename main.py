@@ -21,9 +21,6 @@ with mouse.Listener(on_click=on_click) as listener:
 listener = mouse.Listener(on_click=on_click)
 listener.start()
 
-x_1 = s[0]
-y_1 = s[1]
-x_2 = s[2]
-y_2 = s[3]
 
-screenshot = pyautogui.screenshot('screenshot.png', region=(x_1, y_1, x_2, y_2))  # Скрин области
+screenshot = pyautogui.screenshot('screenshot.png', region=(s[0], s[1], s[2], s[3]))  # Скрин области
+#screenshot = pyautogui.screenshot('screenshot.png', region=(0, 0, 300, 300))  # Скрин области
