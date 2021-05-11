@@ -21,8 +21,14 @@ with mouse.Listener(on_click=on_click) as listener:
 listener = mouse.Listener(on_click=on_click)
 listener.start()
 
-x_1 = s[0]  # left
-y_1 = s[1]  # top
-x_2 = s[2] - s[0]  # width
-y_2 = s[3] - s[1]  # height
-screenshot = pyautogui.screenshot('screenshot.png', region=(x_1, y_1, x_2, y_2))  # Скрин области
+if (s[2] > s[0]):
+    left = s[0]
+else:
+    left = s[2]
+if (s[3] > s[1]):
+    top = s[1]
+else:
+    top = s[3]
+width = s[2] - s[0]
+height = s[3] - s[1]
+screenshot = pyautogui.screenshot('screenshot.png', region=(left, top, abs(width), abs(height)))  # Скрин области
