@@ -21,6 +21,7 @@ with mouse.Listener(on_click=on_click) as listener:
 listener = mouse.Listener(on_click=on_click)
 listener.start()
 
+# Координаты скрина
 if (s[2] > s[0]):
     left = s[0]
 else:
@@ -31,4 +32,6 @@ else:
     top = s[3]
 width = s[2] - s[0]
 height = s[3] - s[1]
-screenshot = pyautogui.screenshot('screenshot.png', region=(left, top, abs(width), abs(height)))  # Скрин области
+
+# Скрин области
+screenshot = pyautogui.screenshot('screenshot.png', region=(left, top, abs(width), abs(height)))
