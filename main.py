@@ -1,6 +1,7 @@
+import pyautogui
 from pynput import keyboard
 import test
-import screen
+import screen_zone
 
 def on_press(key):
     try:
@@ -11,7 +12,8 @@ def on_press(key):
 
 def on_release(key):
     if key == keyboard.Key.print_screen:
-        screen.screen()
+        pyautogui.screenshot('screenshot.png')
+        #screen_zone.screen()
         return False  # Остановить слушатель
 
 

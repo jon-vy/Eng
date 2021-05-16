@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter import RIGHT, N
-
-from PIL import ImageTk
-from PIL.Image import Image
+import screen_zone
 
 
 win1 = tk.Tk()  # Создал окно
@@ -24,13 +22,12 @@ def close():  # Закрывает оба окна
 close = tk.Button(win1, text='Закрыть', command=close)
 close.pack(side=RIGHT, anchor=N)
 
-def screen():
-    print('Скрин')
 
-translit = tk.Button(win1, text='Перевести', command=screen)
+
+translit = tk.Button(win1, text='Перевести')
 translit.pack(side=RIGHT, anchor=N)
 
-
+screen_zone.screen()
 #win0.configure(background = image1)
 win1.mainloop()
 win0.mainloop()
