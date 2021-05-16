@@ -1,33 +1,34 @@
 import tkinter as tk
 from tkinter import RIGHT, N
-import screen_zone
+import pyautogui
+from PIL import ImageTk, Image
 
 
-win1 = tk.Tk()  # Создал окно
+path = 'img/screenshot.png'
 win0 = tk.Tk()  # Создал окно
 win0.attributes('-fullscreen', True)  # Полноэкранный режим окна
-win0.attributes("-alpha", 0.01)  # прозрачность
-win1.attributes("-topmost", True)  # Всегда по верх других окон
-win1.title('Толмач')
+image = Image.open(path)
+width = pyautogui.size()[0]
+ratio = (width / float(image.size[0]))
+height = int((float(image.size[1]) * float(ratio)))
+image = image.resize((width, height), Image.ANTIALIAS)
+image = ImageTk.PhotoImage(image)
+canvas = tk.Canvas(win0, width=width, height=height)
+canvas.pack(side="top", fill="both", expand="no")
+canvas.create_image(0, 0, anchor="nw", image=image)
 
-
-win1.geometry('300x300+100+200')
 
 def close():  # Закрывает оба окна
     win0.destroy()
     win1.destroy()
 
 
-
+win1 = tk.Tk()  # Создал окно
+win1.attributes("-topmost", True)  # Всегда по верх других окон
+win1.title('Толмач')
 close = tk.Button(win1, text='Закрыть', command=close)
 close.pack(side=RIGHT, anchor=N)
 
 
-
-translit = tk.Button(win1, text='Перевести')
-translit.pack(side=RIGHT, anchor=N)
-
-screen_zone.screen()
-#win0.configure(background = image1)
 win1.mainloop()
 win0.mainloop()
